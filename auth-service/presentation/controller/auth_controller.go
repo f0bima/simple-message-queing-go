@@ -18,6 +18,14 @@ func NewAuthController(p interfaces.Producer) *AuthController {
 	return &AuthController{Producer: p}
 }
 
+// ForgotPasswordHandler godoc
+// @Summary     Forgot Password
+// @Description Kirim link reset password ke email
+// @Tags        forgot password
+// @Accept      json
+// @Produce     json
+// @Param       request body dto.RequestForgotPasswordDto true "Request"
+// @Router       /v1/auth/forgot-password [post]
 func (controller *AuthController) ForgotPassword(c *gin.Context) {
 	var requestForgotPasswordDto dto.RequestForgotPasswordDto
 
@@ -42,6 +50,14 @@ func (controller *AuthController) ForgotPassword(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": requestForgotPasswordDto})
 }
 
+// SendOTPHandler godoc
+// @Summary     Send OTP
+// @Description Kirim OTP ke email
+// @Tags        send otp
+// @Accept      json
+// @Produce     json
+// @Param       request body dto.RequestForgotPasswordDto true "Request"
+// @Router       /v1/auth/send-otp [post]
 func (controller *AuthController) SendOTP(c *gin.Context) {
 	var requestEmailOTPDto dto.RequestEmailOTPDto
 

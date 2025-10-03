@@ -1,0 +1,82 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Dokumentasi api tentang penggunaan kafka producer dengan studi kasus auth service(Forgot password dan Send OTP)",
+        "title": "Auth Service",
+        "contact": {
+            "name": "Fauzan Bima",
+            "url": "https://www.f0bima.com",
+            "email": "fbimapk@gmail.io"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/v1/auth/forgot-password": {
+            "post": {
+                "description": "Kirim link reset password ke email",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "forgot password"
+                ],
+                "summary": "Forgot Password",
+                "parameters": [
+                    {
+                        "description": "Request",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.RequestForgotPasswordDto"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/v1/auth/send-otp": {
+            "post": {
+                "description": "Kirim OTP ke email",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "send otp"
+                ],
+                "summary": "Send OTP",
+                "parameters": [
+                    {
+                        "description": "Request",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.RequestForgotPasswordDto"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        }
+    },
+    "definitions": {
+        "dto.RequestForgotPasswordDto": {
+            "type": "object",
+            "required": [
+                "email"
+            ],
+            "properties": {
+                "email": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

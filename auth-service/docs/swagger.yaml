@@ -1,0 +1,55 @@
+definitions:
+  dto.RequestForgotPasswordDto:
+    properties:
+      email:
+        type: string
+    required:
+    - email
+    type: object
+info:
+  contact:
+    email: fbimapk@gmail.io
+    name: Fauzan Bima
+    url: https://www.f0bima.com
+  description: Dokumentasi api tentang penggunaan kafka producer dengan studi kasus
+    auth service(Forgot password dan Send OTP)
+  title: Auth Service
+  version: "1.0"
+paths:
+  /v1/auth/forgot-password:
+    post:
+      consumes:
+      - application/json
+      description: Kirim link reset password ke email
+      parameters:
+      - description: Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.RequestForgotPasswordDto'
+      produces:
+      - application/json
+      responses: {}
+      summary: Forgot Password
+      tags:
+      - forgot password
+  /v1/auth/send-otp:
+    post:
+      consumes:
+      - application/json
+      description: Kirim OTP ke email
+      parameters:
+      - description: Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.RequestForgotPasswordDto'
+      produces:
+      - application/json
+      responses: {}
+      summary: Send OTP
+      tags:
+      - send otp
+swagger: "2.0"
