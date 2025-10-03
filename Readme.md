@@ -40,7 +40,7 @@ docker compose up -d
 ```
 
 - kafka akan berjalan di 127.0.0.1:9093
-- Buat topic `forgot-password` dan `otp` di http://localhost:9000/topic
+- Buat topic `forgot-password` dan `otp` di [`http://localhost:9000/topic/create`](http://localhost:9000/topic/create)
 
 ### 2. Run service
 
@@ -63,7 +63,7 @@ go run .
 
 ### 3. Test AuthService / Producer
 
-Akses [`http://localhost:8080/swagger/`](http://localhost:8080/swagger/) . Testing AuthService / producer bisa dilakukan di halaman tersebut
+Akses [`http://localhost:8080/swagger/index.html`](http://localhost:8080/swagger/index.html) . Testing AuthService / producer bisa dilakukan di halaman tersebut
 
 ### 3. Test EmailService / Consumer
 
