@@ -42,29 +42,37 @@ docker compose up -d
 - kafka akan berjalan di 127.0.0.1:9093
 - Buat topic `forgot-password` dan `otp` di [`http://localhost:9000/topic/create`](http://localhost:9000/topic/create)
 
-### 2. Run service
+### 2. Run Auth Service
 
 ```bash
+# run AuthService
+cd auth-service
 # install dependencies
 go mod tidy
 
-# optional (arahkan ke mingw64)
+# optional : arahkan ke mingw64, sesuaikan path dengan lokasi mingw64
 set PATH=C:\msys64\mingw64\bin;%PATH%
 
-# run AuthService
-cd auth-service
 go run .
-
-# run EmailService
-cd email-service
-go run .
-
 ```
 
-### 3. Test AuthService / Producer
+### 3. Run Email Service
+
+```bash
+# run EmailService
+cd email-service
+# install dependencies
+go mod tidy
+
+# optional : arahkan ke mingw64, sesuaikan path dengan lokasi mingw64
+set PATH=C:\msys64\mingw64\bin;%PATH%
+go run .
+```
+
+### 4. Test AuthService / Producer
 
 Akses [`http://localhost:8080/swagger/index.html`](http://localhost:8080/swagger/index.html) . Testing AuthService / producer bisa dilakukan di halaman tersebut
 
-### 3. Test EmailService / Consumer
+### 5. Test EmailService / Consumer
 
 Service akan memprint setiap message yang diterima sesuai dengan topic nya
